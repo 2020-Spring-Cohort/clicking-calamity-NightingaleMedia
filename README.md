@@ -28,7 +28,8 @@ You have been contracted by Coo Coo Computing Challengers to take a concept, Cli
   - [ ] _Collective Culmination Compounders_ are bought with clicks from your click total.
   - [ ] Each _Collective Culmination Compounder_ that is purchased increases the cost of the next _Collective Culmination Compounder_.
   - [ ] The initial cost should be around 10 clicks.
-  - [ ] The first _Collective Culmination Compounder_ increases the value of a click from `1x` to `1.2x`.
+  - [ ] The first _Collective Culmination Compounder_ increases the value of a click from `1x` 
+  to `1.2x`.
   - [ ] Every subsequent _Collective Culmination Compounder_ increases the value of a click exponentially.  For example, the second _Collective Culmination Compounder_ will increase the value of a click to `1.2x * 1.2x` or `1.44x`.
 - [ ] You must be able to reset the game state.  This action should reset the game to zero clicks, zero _Clicking Companions_, and zero _Collective Culmination Compounders_.
 - [ ] This website also has some other requirements:
