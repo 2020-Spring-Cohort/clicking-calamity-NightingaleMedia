@@ -45,4 +45,7 @@ let testClicker;
             expect(testCompanionDisplay.innerHTML).toBe('1');
             });
       });
+      describe('wire up the auto-clickers', () => {
+         it('auto-clicker text displays')
+      })
    });

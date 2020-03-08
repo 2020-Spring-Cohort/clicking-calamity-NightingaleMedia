@@ -60,6 +60,7 @@ p {
 }
 
 .click {
+    transition: all 0.1s;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,15 +73,16 @@ p {
 }
 
 .clicking {
-    transform: scale(0.95);
-    border: 5px solid white;
     transition: all 0.1s;
+    transform: scale(0.96);
+    background-color: green;
 }
 
-.click-compounder {
-    display: grid;
-    grid-template-columns: 1;
+.auto-clicker {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     border-radius: 100%;
     background-color: burlywood;

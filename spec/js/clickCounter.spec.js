@@ -81,4 +81,20 @@ describe('Click calamity tests:', () => {
 
         });
     });
+    describe("Auto clickers should have the proper logic", ()=> {
+        beforeEach(() => {
+            for (let i = 0; i <= 100; i++) {
+                underTest.countClick();
+            }
+    });
+    it('After 100 clicks the auto clicker is available', ()=> {
+        expect(underTest._getAutoClickersAvailable()).toBe(1);
+    });
+
+    it('After the autoclicker is available you can purchase it' , ()=> {
+        underTest._purchaseAutoClicker();
+        expect(underTest._getAutoClickersAvailable()).toBe(0);
+        expect(underTest._getAutoClickersSelected()).toBe(1);
+    })
+});
 });

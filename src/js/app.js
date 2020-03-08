@@ -11,6 +11,19 @@ const updateCompanionDisplay = (companionDisplay, clicker) => {
     }
 };
 
+const updateAutoClickDisplay = (autoClickerAvail, clicker) => {
+    autoClickerAvail.innerHTML = clicker._getAutoClickersAvailable();
+    const autoClickPrice = document.querySelector('.auto-clicker-cost')
+    autoClickPrice.innerHTML = clicker._getAutoClickerPrice();
+    const autoClickBg = document.querySelector('.auto-clicker')
+    
+    if (clicker._getAutoClickersAvailable() > 0) {
+        autoClickBg.classList.add("available");
+    } else {
+        autoClickBg.classList.remove("available");
+    }
+};
+
 const updateNumberOfClicks = (clicker, clickDisplay) => {
     clickDisplay.innerHTML = clicker._getClickCount();
 };
@@ -20,13 +33,18 @@ const updateClickWorth = (clickWorthDisplay, clicker) => {
     clickWorthDisplay.innerHTML = 'One Click is Worth: ' + (1 + clicker._getClickCompanionsSelected());
     }
 }
+const updateAutoClickersSelected = (autoClickersSelected, clicker) => {
+    if(clicker._getAutoClickersSelected() > 0){
+    autoClickersSelected.innerHTML = 'Auto Clickers: ' +(clicker._getAutoClickersSelected());
+    }
+}
 
 const makeButtonIntoClicker = (clickerElement, clicker) => {
     clickerElement.addEventListener('click', () => {
         clickerElement.classList.add('clicking');
         clickerElement.addEventListener('transitionend', ()=>{
             clickerElement.classList.remove('clicking');
-        })
+        });
         clicker.countClick();   
         updateAllElements();
     });
@@ -40,17 +58,41 @@ const makeButtonToPurchaseCompanion = (clicker) => {
     });
 };
 
+function autoClick() {
+    appClicker.countClick();
+    updateAllElements();
+}
+
+const makeButtonToPurchaseAutoClicker = (autoClickerElement, clicker) => {
+    autoClickerElement.addEventListener('click', () => {
+        if(clicker._getAutoClickersAvailable() > 0){ 
+            clicker._purchaseAutoClicker();
+            console.log('yed');
+            setInterval(autoClick, 1000);
+            updateAllElements();
+        }
+    updateAllElements();
+    });
+
+}
+
 const updateAllElements = () => {
     updateCompanionDisplay(appCompanionDisplay, appClicker);
     updateNumberOfClicks(appClicker, appClickDisplay);
     updateClickWorth(appClickWorth, appClicker);
+    updateAutoClickDisplay(appAutoClickerAvail, appClicker);
+    updateAutoClickersSelected(appAutoClickersSelected, appClicker);
 }
 
-const appClickWorth = document.querySelector('.click-worth')
-const appCompanionDisplay = document.querySelector('.click-companion-amt')
+const appAutoClicker = document.querySelector('.auto-clicker');
+const appAutoClickerAvail = document.querySelector('.auto-clicker-avail');
+const appAutoClickersSelected = document.querySelector('.auto-clickers-selected')
+const appClickWorth = document.querySelector('.click-worth');
+const appCompanionDisplay = document.querySelector('.click-companion-amt');
 const appClickDisplay = document.querySelector('.my-clicks');
 const button = document.querySelector('.click');
 const appClicker = new ClickCounter();
 
 makeButtonIntoClicker(button, appClicker);
 makeButtonToPurchaseCompanion(appClicker);
+makeButtonToPurchaseAutoClicker(appAutoClicker, appClicker);
