@@ -81,6 +81,4 @@ describe('Click calamity tests:', () => {
 
         });
     });
-
-
 });

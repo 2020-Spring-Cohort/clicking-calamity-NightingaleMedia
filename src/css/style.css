@@ -1,41 +1,80 @@
 body {
     background-color: #181818;
+    font-family: Helvetica Neue, sans-serif;
+    font-weight: 200;
+    font-size: 1.2em;
+    transition: all 0.5s;
 }
+
 h1 {
     color: white;
-    font-size: 8rem;
-    font-family: sans-serif;
-    font-weight: 10;
+    font-size: 10rem;
+    font-family: Helvetica Neue, sans-serif;
+    font-weight: 100;
     line-height: 0em;
 }
+
+h4 {
+    font-size: 2em;
+    line-height: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+p {
+    line-height: 20px;
+    padding: 0px;
+    margin: 10px;
+}
+
 .container {
     margin-top: 120px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 33%);
     align-items: center;
     justify-items: center;
 }
 
-.click-companion {
+.companion-container {
     display: grid;
     grid-template-columns: 1;
     align-items: center;
     justify-content: center;
+}
+
+.click-companion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: grey;
     border-radius: 100%;
-    background-color: aqua;
+    background-color: #690f09;
     height: 250px;
     width: 250px;
 }
 
+.click-companion-cost {
+    margin-top: 20px;
+}
+
 .click {
-    display: grid;
-    grid-template-columns: 1;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 100%;
     background-color: dimgrey;
     height: 500px;
     width: 500px;
+    user-select: none;
+}
+
+.clicking {
+    transform: scale(0.95);
+    border: 5px solid white;
+    transition: all 0.1s;
 }
 
 .click-compounder {
@@ -47,4 +86,16 @@ h1 {
     background-color: burlywood;
     height: 250px;
     width: 250px;
+}
+
+.available {
+    background: linear-gradient(90deg, rgba(34, 121, 70, 1) 0%, rgba(143, 255, 86, 1) 100%) !important;
+    color: white;
+    transition: all 0.5s;
+    transition-timing-function: ease;
+}
+
+.available:hover {
+    background: linear-gradient(90deg, rgba(143, 255, 86, 1) 0%, rgba(34, 121, 70, 1) 100%) !important;
+    color: white;
 }

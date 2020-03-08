@@ -5,10 +5,14 @@ class ClickCounter {
         this.clickCompanionsSelected = 0;
         this.clickCompanionsAvailable = 0;
         this.clickCompanionPrice = 100;
-        //expressed as a percentage
         this.clickCompanionPriceIncrease = 0.10;
-    }
 
+        //Click Compounders
+        this.clickCompoundersAvailable = 0;
+        this.clickCompoundersSelected = 0;
+        this.clickCompounderPrice = 100;
+        this.clickCompanionPriceIncrease = 0.20;
+    }
     // simply counts the clicks and adds companions when necessary
     countClick() {
         if (this.clickCompanionsSelected > 0) {
@@ -22,8 +26,8 @@ class ClickCounter {
         this.clickCompanionsAvailable = 
            Math.floor(this.clickCount / this.clickCompanionPrice);  
     }
-
     _purchaseClickCompanion(){
+        this.clickCompanionEligibility();
         if (this.clickCompanionsAvailable > 0) {
             this.clickCount -= this.clickCompanionPrice;
             this.clickCompanionsAvailable --;
@@ -39,8 +43,16 @@ class ClickCounter {
         }
     }
     _getClickCount(){
-        console.log('click: ' + this.clickCount)
         return this.clickCount;
-    
+    }
+    _getClickCompanionsAvailable(){
+        return this.clickCompanionsAvailable;
+    }
+    _getClickCompanionsSelected() {
+        return this.clickCompanionsSelected;
+    }
+
+    _getClickCompanionPrice() {
+        return this.clickCompanionPrice;
     }
 }
