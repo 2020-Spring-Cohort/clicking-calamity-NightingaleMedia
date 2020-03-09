@@ -84,4 +84,18 @@ class ClickCounter {
     _getAutoClickerPrice(){
         return this.autoClickerPrice;
     }
+
+    initialize(){
+        this.clickCount = 0;
+
+        this.autoClickerPrice = 40;
+        this.autoClickersAvailable = 0;
+        this.autoClickersSelected = 0;
+
+        this.clickCompanionsSelected = 0;
+        this.clickCompanionsAvailable = 0;
+        this.clickCompanionPrice = 40;
+
+    }
+
 }

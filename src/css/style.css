@@ -4,6 +4,7 @@ body {
     font-weight: 200;
     font-size: 1.2em;
     transition: all 0.5s;
+    user-select: none;
 }
 
 h1 {
@@ -15,6 +16,8 @@ h1 {
 }
 
 h4 {
+    font-weight: 100;
+    color: white;
     font-size: 2em;
     line-height: 20px;
     padding: 0px;
@@ -100,4 +103,12 @@ p {
 .available:hover {
     background: linear-gradient(90deg, rgba(143, 255, 86, 1) 0%, rgba(34, 121, 70, 1) 100%) !important;
     color: white;
+}
+
+.reset {
+    margin-top: 20px;
+    height: 40px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: rgb(28, 133, 106);
 }

@@ -1,4 +1,6 @@
 
+
+
 const updateCompanionDisplay = (companionDisplay, clicker) => {
     const companionBg = document.querySelector('.click-companion');
     const companionAmt = document.querySelector('.click-companion-cost');
@@ -61,19 +63,18 @@ const makeButtonToPurchaseCompanion = (clicker) => {
 function autoClick() {
     appClicker.countClick();
     updateAllElements();
+
 }
 
 const makeButtonToPurchaseAutoClicker = (autoClickerElement, clicker) => {
     autoClickerElement.addEventListener('click', () => {
         if(clicker._getAutoClickersAvailable() > 0){ 
             clicker._purchaseAutoClicker();
-            console.log('yed');
             setInterval(autoClick, 1000);
             updateAllElements();
         }
     updateAllElements();
     });
-
 }
 
 const updateAllElements = () => {
@@ -84,6 +85,15 @@ const updateAllElements = () => {
     updateAutoClickersSelected(appAutoClickersSelected, appClicker);
 }
 
+const reset = (resetter, appTimer) => {
+    resetter.addEventListener('click', () => {
+        appClicker.initialize();
+        clearInterval(appTimer);
+        updateAllElements();
+    });
+}
+
+
 const appAutoClicker = document.querySelector('.auto-clicker');
 const appAutoClickerAvail = document.querySelector('.auto-clicker-avail');
 const appAutoClickersSelected = document.querySelector('.auto-clickers-selected')
@@ -91,8 +101,11 @@ const appClickWorth = document.querySelector('.click-worth');
 const appCompanionDisplay = document.querySelector('.click-companion-amt');
 const appClickDisplay = document.querySelector('.my-clicks');
 const button = document.querySelector('.click');
+const resetButton = document.querySelector('.reset');
 const appClicker = new ClickCounter();
+
 
 makeButtonIntoClicker(button, appClicker);
 makeButtonToPurchaseCompanion(appClicker);
 makeButtonToPurchaseAutoClicker(appAutoClicker, appClicker);
+reset(resetButton);
